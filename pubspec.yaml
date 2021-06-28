@@ -18,9 +18,11 @@ dependencies:
   google_fonts: ^2.1.0
   crypto: ^3.0.1
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
 flutter:
 

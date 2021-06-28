@@ -49,31 +49,23 @@ class MyHomePageState extends State<MyHomePage> {
         body: SafeArea(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Align(alignment: Alignment.topCenter, child: FieldWidget()),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: FightersInfo(
-                      maxLivesCount: maxLive,
-                      yourLivesCount: yourLives,
-                      enemysLivesCount: enemysLives,
-                    ),
-                  ),
-                ],
+              FightersInfo(
+                maxLivesCount: maxLive,
+                yourLivesCount: yourLives,
+                enemysLivesCount: enemysLives,
               ),
+              const SizedBox(height: 30),
               Expanded(
-                child: SizedBox(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 30),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: ColoredBox(
-                      color: FightClubColors.backgroundGameInfo,
-                      child: Center(child: Text("Game info")),
-                    ),
-                  ),
+                color: FightClubColors.backgroundGameInfo,
+                child: SizedBox(
+                    width: double.infinity,
                 ),
               ),
+                  )),
+              const SizedBox(height: 30),
               ControlsWidget(
                 defendingBodyPart: defendingBodyPart,
                 selectDefendingBodyPart: _selectDefendingBodyPart,
@@ -185,32 +177,6 @@ class MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class FieldWidget extends StatelessWidget {
-  const FieldWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: ColoredBox(
-            color: FightClubColors.backgroundYouField,
-            child: SizedBox(height: 160),
-          ),
-        ),
-        Expanded(
-          child: ColoredBox(
-            color: FightClubColors.backgroundEnemyField,
-            child: SizedBox(height: 160),
-          ),
-        )
-      ],
-    );
-  }
-}
-
 class FightersInfo extends StatelessWidget {
   final maxLivesCount;
   final yourLivesCount;
@@ -227,51 +193,65 @@ class FightersInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 160,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Stack(
         children: [
-          LivesWidget(
-              overallLivesCount: maxLivesCount,
-              currentLivesCount: yourLivesCount),
-          Column(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 16),
-              Text("You",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: FightClubColors.darkGreyText)),
-              const SizedBox(height: 12),
-              Image.asset(
-                FightClubImages.youAvatar,
-                width: 93,
-                height: 93,
-              )
+              Expanded(
+                  child: ColoredBox(color: FightClubColors.backgroundYouField)),
+              Expanded(
+                  child:
+                      ColoredBox(color: FightClubColors.backgroundEnemyField)),
             ],
           ),
-          ColoredBox(
-            color: Colors.green,
-            child: SizedBox(height: 44, width: 44),
-          ),
-          Column(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const SizedBox(height: 16),
-              Text("Enemy",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                      color: FightClubColors.darkGreyText)),
-              const SizedBox(height: 12),
-              Image.asset(
-                FightClubImages.enemyAvatar,
-                width: 93,
-                height: 93,
-              )
+              LivesWidget(
+                  overallLivesCount: maxLivesCount,
+                  currentLivesCount: yourLivesCount),
+              Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Text("You",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: FightClubColors.darkGreyText)),
+                  const SizedBox(height: 12),
+                  Image.asset(
+                    FightClubImages.youAvatar,
+                    width: 93,
+                    height: 93,
+                  )
+                ],
+              ),
+              ColoredBox(
+                color: Colors.green,
+                child: SizedBox(height: 44, width: 44),
+              ),
+              Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Text("Enemy",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: FightClubColors.darkGreyText)),
+                  const SizedBox(height: 12),
+                  Image.asset(
+                    FightClubImages.enemyAvatar,
+                    width: 93,
+                    height: 93,
+                  )
+                ],
+              ),
+              LivesWidget(
+                  overallLivesCount: maxLivesCount,
+                  currentLivesCount: enemysLivesCount),
             ],
           ),
-          LivesWidget(
-              overallLivesCount: maxLivesCount,
-              currentLivesCount: enemysLivesCount),
         ],
       ),
     );
