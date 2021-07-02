@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   google_fonts: ^2.1.0
   crypto: ^3.0.1
+  rx_shared_preferences: ^2.1.0
 
 
 dev_dependencies:
