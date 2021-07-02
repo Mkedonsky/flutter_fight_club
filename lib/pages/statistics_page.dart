@@ -84,7 +84,7 @@ class _StatisticsPageContent extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pop();
                   },
-                  text: "back"),
+                  text: "Back"),
             )
           ],
         ),

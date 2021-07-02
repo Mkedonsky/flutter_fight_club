@@ -79,7 +79,7 @@ class _MainPageContent extends StatelessWidget {
                     ),
                   );
                 },
-                text: "Statistic"),
+                text: "Statistics"),
             const SizedBox(height: 12),
             ActionButton(
               onTap: () {
@@ -100,15 +100,3 @@ class _MainPageContent extends StatelessWidget {
   }
 }
 
-_changeColor(data) {
-  switch (data) {
-    case "won":
-      return Color.fromRGBO(3, 136, 0, 1);
-
-    case "draw":
-      return Color.fromRGBO(28, 121, 206, 1);
-
-    case "lost":
-      return Color.fromRGBO(234, 44, 44, 1);
-  }
-}
