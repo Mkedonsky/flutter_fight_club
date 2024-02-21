@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fight_club/fight_result.dart';
 import 'package:flutter_fight_club/pages/fight_page.dart';
@@ -56,7 +55,7 @@ class _MainPageContent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "last fight result",
+                      "Last fight result",
                       style: TextStyle(
                           color: FightClubColors.darkGreyText, fontSize: 14),
                     ),

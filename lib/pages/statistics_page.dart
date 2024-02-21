@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fight_club/fight_result.dart';
 import 'package:flutter_fight_club/resources/fight_club_colors.dart';
-import 'package:flutter_fight_club/widgets/fight_result_widget.dart';
 import 'package:flutter_fight_club/widgets/secondary_action_button.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 
